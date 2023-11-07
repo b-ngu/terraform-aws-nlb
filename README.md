@@ -1,10 +1,10 @@
-# terraform-aws-network-load-balancer
+# terraform-aws-nlb
 
 ## Summary
 
-This Terraform module creates AWS Network Load Balancer (NLB) resources along with associated listeners and target groups. The NLB is designed to handle millions of requests per second while maintaining ultra-low latencies, making it ideal for handling volatile workloads and traffic patterns.
+Terraform module which creates AWS Network Load Balancer (NLB) resources, along with necessary Listeners.
 
-Network Load Balancers are best suited for load balancing TCP traffic where extreme performance is required. Operating at the connection level (Layer 4), Network Load Balancers route traffic to targets within Amazon VPC and are capable of handling millions of requests per second while maintaining high throughput at ultra-low latencies.
+This module is tailored to provide a straightforward approach to setting up an AWS Network Load Balancer, ensuring high availability, reliability, and fault tolerance within your AWS environment. AWS Network Load Balancers are designed to handle millions of requests per second while maintaining ultra-low latencies, making them ideal for handling TCP traffic.
 
 ## Helpful AWS Documentation Links
 
@@ -45,7 +45,7 @@ To configure any additional tags, set tags map in module definition
 
 ```hcl
 
-module "security_group" {
+module "network_load_balancer" {
   source = "path_to_this_module"
 
   ...
@@ -60,7 +60,7 @@ module "security_group" {
 
 ## Examples
 
-* [SG](./examples/nlb)
+* [Network Load Balancer](./examples/nlb)
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -84,7 +84,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_network_load_balancer.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_load_balancer) | resource |
+| [aws_network_load_balancer.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb) | resource |
 | [aws_lb_listener.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener) | resource |
 | [aws_lb_target_group.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group) | resource |
 
