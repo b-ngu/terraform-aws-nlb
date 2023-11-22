@@ -1,7 +1,3 @@
-provider "aws" {
-  region = var.region
-}
-
 resource "aws_lb" "this" {
   name                       = var.nlb_name
   internal                   = var.internal
