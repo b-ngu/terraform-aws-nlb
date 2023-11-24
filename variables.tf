@@ -65,20 +65,20 @@ variable "enable_cross_zone_load_balancing" {
   default     = false
 }
 
-variable "listener_port" {
-  description = "The port on which the load balancer is listening"
-  type        = number
-  default     = 80
-}
-
 variable "target_group_name" {
   description = "The name of the target group"
   type        = string
   default     = "my-target-group"
 }
 
-variable "target_group_port" {
-  description = "The port on which the targets receive traffic"
-  type        = number
-  default     = 80
+variable "port_configurations" {
+  description = "List of configurations for listeners and target groups including ports, protocol, and optional SSL settings"
+  type        = list(object({
+    listener_port         = number
+    target_group_port     = number
+    protocol              = string
+    certificate_arn       = string
+    ssl_policy            = string
+  }))
+  default     = []
 }
